@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:responsive_grid/responsive_grid.dart';
-import 'package:shoes_ecommerce/utils/svg_icon.dart';
+import 'package:shoes_ecommerce/widgets/svg_icon.dart';
 import 'package:shoes_ecommerce/utils/theme.dart';
 import 'package:shoes_ecommerce/widgets/product_item.dart';
 
@@ -165,7 +165,13 @@ Widget buildProduct(BuildContext context, List products) {
       minSpacing: 16,
       scroll: false,
       children: products
-          .map((e) => ProductItem(
-              imageUrl: e["image"], name: e["name"], price: e["price"]))
+          .map(
+            (e) => ProductItem(
+              imageUrl: e["image"],
+              name: e["name"],
+              price: e["price"],
+              isFavourite: e["isFavourite"],
+            ),
+          )
           .toList());
 }

@@ -2,18 +2,20 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:shoes_ecommerce/utils/svg_icon.dart';
+import 'package:shoes_ecommerce/widgets/svg_icon.dart';
 import 'package:shoes_ecommerce/utils/theme.dart';
 
 class ProductItem extends StatelessWidget {
   final String imageUrl;
   final String name;
   final String price;
+  final bool isFavourite;
   const ProductItem({
     super.key,
     required this.imageUrl,
     required this.name,
     required this.price,
+    this.isFavourite = false,
   });
 
   @override
@@ -78,9 +80,9 @@ class ProductItem extends StatelessWidget {
                   ),
                   IconButton(
                       onPressed: () {},
-                      icon: const SvgIcon(
+                      icon: SvgIcon(
                         "Heart",
-                        color: greyColor,
+                        color: isFavourite ? Colors.red : greyColor,
                       ))
                 ],
               ),
